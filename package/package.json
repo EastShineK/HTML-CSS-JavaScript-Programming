@@ -1,0 +1,25 @@
+{
+  "name": "es-skku-stat",
+  "version": "0.1.0",
+  "description": "\"# skku-stat\"",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EastShineK/OSS_Lab07.git"
+  },
+  "bin": {
+    "stat": "./main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EastShineK/OSS_Lab07/issues"
+  },
+  "homepage": "https://github.com/EastShineK/OSS_Lab07#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
