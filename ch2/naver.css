@@ -3,6 +3,20 @@
     width: 1080px;
 }
 
-/*header#header{
+div#header-search > h1{ /*자식*/
+    width: 280px;
+    display: inline-block;
+}
 
+div#header-search h2{ /*자식*/
+    display: none;
+}
+
+#header-search fieldset{ /*자식*/
+    width: 520px;
+    display: inline-block;
+}
+
+/*#header-center h1{ 자손
+    width: 280px;
 }*/
