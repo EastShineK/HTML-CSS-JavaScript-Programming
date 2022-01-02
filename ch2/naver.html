@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="./naver.css">
     </head>
     <body>
-        <header> <!-- 시맨틱구조태그-->
+        <header>
+            <!-- 시맨틱구조태그-->
             <div id="header-center"> <!-- 가운데 정렬용 div-->
                 <!--속성명: 속성값; 속성명2: 속성값2 -->
                 <!-- 인라인 스타일-->
@@ -16,17 +17,28 @@
                     <div style="display: inline-block">쥬니어네이버</div>
                     <div style="display: inline-block">해피빈</div>
                 </div>
-                <div id="header-search">
-                    <h1>
-                        <a href="https://www.naver.com">네이버</a>
-                        <!-- 주석입니다-->
-                    </h1>
-                    <h2 class="blind">검색창</h2>
-                    <fieldset>
-                        <legend class="blind">검색</legend>
-                        <input />
-                        <button>검색</button>
-                    </fieldset>
+                <div id="header" role="banner">
+                    <div class="special_bg">
+                        <div class="group_flex">
+                            <div class="logo_area">
+                                <h1 class="logo_default">
+                                    <a href="https://www.naver.com" class="logo_naver" data-clk="top.logo">
+                                        <span class="blind">네이버</span>
+                                    </a>
+                                    
+                                    <!-- 주석입니다-->
+                                </h1>
+                            </div>
+                            <div id="search" class="search_area" data-clk-prefix="sch">
+                                <h2 class="blind">검색창</h2>
+                                <fieldset>
+                                    <legend class="blind">검색</legend>
+                                    <input />
+                                    <button>검색</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>

@@ -7,22 +7,97 @@
     overflow: hidden;
 }
 
+#header {
+    position: relative;
+    background-color: #fff;
+    z-index: 2000;
+}
+
+#header .special_bg {
+    position: relative;
+    height: 160px;
+    /*background-color: #fff;*/
+    border-bottom: 1px solid #e4e8eb;
+}
+
+#header .group_flex {
+    position: relative;
+    width: 1130px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+#header .logo_area {
+    position: relative;
+    height: 100%;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#header .logo_default {
+    position: absolute;
+    top: 50%;
+    left: -9px;
+    margin-top: -32px;
+}
+
+#header .logo_default .logo_naver {
+    display: block;
+    /*background-image: url(./main_naver.png);*/
+    -webkit-background-size: 444px 439px;
+    background-size: 444px 439px;
+    background-repeat: no-repeat;
+}
+
+#header .logo_default .logo_naver:before {
+    display: inline-block;
+    width: 222px;
+    height: 52px;
+    background-position: 0 -158px;
+    background-repeat: no-repeat;
+    vertical-align: top;
+    content: '';
+    display: block;
+    background-image: url(./main_naver.png);
+    background-size: 444px 439px;
+}
+
+#header .search_area {
+    position: absolute;
+    top: 50%;
+    left: 268px;
+    margin-top: -28px;
+}
+
 #header-center {
     margin: 0 auto; 
     width: 1080px;
 }
 
-div#header-search > h1{ /*자식*/
-    width: 280px;
+/*div#header-search > h1{ /*자식*/
+    /*width: 198px;
+    height: 48px;
     display: inline-block;
-}
+    background-image: url(./main_naver.png);
+    background-size: 444px 439px;
+}*/
 
 div#header-search h2{ /*자식*/
     display: none;
 }
 
 #header-search fieldset{ /*자식*/
-    width: 520px;
+    width: 521px;
+    height: 49px;
     display: inline-block;
 }
 
