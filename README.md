@@ -17,3 +17,7 @@
 #### https://bitnami.com/stack/wamp
 ### localhost - 127.0.0.1
 ### In order for a web browser to access the web server, it needs to know the address (ip address) of the computer where the web server is installed.
+## Appendix
+### Comment function - https://disqus.com/
+### Chatting System - https://www.tawk.to/
+### Visitor Analytics - https://analytics.google.com/
