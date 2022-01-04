@@ -71,13 +71,6 @@ h1 {
     background-size: 444px 439px;
 }
 
-#header .search_area {
-    position: absolute;
-    top: 50%;
-    left: 268px;
-    margin-top: -28px;
-}
-
 #header-center {
     margin: 0 auto; 
     width: 1080px;
@@ -90,17 +83,129 @@ h1 {
     background-image: url(./main_naver.png);
     background-size: 444px 439px;
 }*/
-
+#header .search_area {
+    position: absolute;
+    top: 50%;
+    left: 268px;
+    margin-top: -28px;
+}
+legend {
+    display: block;
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
 div#header-search h2{ /*자식*/
     display: none;
 }
-
-#header-search fieldset{ /*자식*/
-    width: 521px;
-    height: 49px;
-    display: inline-block;
+form{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+fieldset{ /*자식*/
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
+#header .search_area .green_window {
+    position: relative;
+    width: 582px;
+    height: 52px;
+    border: 2px solid #19ce60;
+    border-radius: 2px;
+}
+#header .search_area .input_text {
+    width: 444px;
+    height: 24px;
+    padding: 13px 15px;
+    margin: 1px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    outline: 0;
+}
+input{
+    border-radius: 0;
+    border: 0;
+    -webkit-writing-mode: horizontal-tb !important;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-stretch: ;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+}
+#header .search_area .btn_submit {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 56px;
+    background-color: #19ce60;
+    border-radius: 0 2px 2px 0;
+}
+button{
+    font-size: 12px;
+    line-height: 16px;
+    color: #202020;
+    appearance: auto;
+    -webkit-writing-mode: horizontal-tb !important;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-weight: ;
+    font-stretch: ;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+#header .search_area .btn_submit .ico_search_submit {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-position: -420px -184px;
+    background-repeat: no-repeat;
+    vertical-align: top;
+    background-image: url(./main_naver.png);
+    background-size: 444px 439px;
+}
 /*#header-center h1{ 자손
     width: 280px;
 }*/
