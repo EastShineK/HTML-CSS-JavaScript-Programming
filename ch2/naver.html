@@ -30,11 +30,17 @@
                                 </h1>
                             </div>
                             <div id="search" class="search_area" data-clk-prefix="sch">
+                                <form id="sform" name="sform" action="http://search.naver.com/search.naver" method="get" role="search"></form>
                                 <h2 class="blind">검색창</h2>
                                 <fieldset>
                                     <legend class="blind">검색</legend>
-                                    <input />
-                                    <button>검색</button>
+                                    <div class="green_window">
+                                        <input id="query" name="query" type="text" title="검색어 입력" maxlength="255" class="input_text" tabindex="1" accesskey="s" style="ime-mode:active;" autocomplete="off" placeholder="검색어를 입력해 주세요." onclick="document.getElementById('fbm').value=1;" value data-atcmp-element>
+                                    </div>
+                                    <button id="search_btn" type="submit" title="검색" tabindex="3" class="btn_submit" onclick="window.nclick(this,'sch.action','','','event');">
+                                        <span class="blind">검색</span>
+                                        <span class="ico_search_submit"></span>
+                                    </button>
                                 </fieldset>
                             </div>
                         </div>
