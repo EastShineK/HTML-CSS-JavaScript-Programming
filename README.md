@@ -21,3 +21,5 @@
 ### Comment function - https://disqus.com/
 ### Chatting System - https://www.tawk.to/
 ### Visitor Analytics - https://analytics.google.com/
+## Support tables for HTML5, CSS etc. 
+### https://caniuse.com/
