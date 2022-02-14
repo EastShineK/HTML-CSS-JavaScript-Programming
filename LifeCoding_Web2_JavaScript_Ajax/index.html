@@ -22,10 +22,8 @@
     nightDayHandler(this);
   ">
   <div id="grid">
-    <ol>
-      <li><a href="#!html" onclick="fetchPage('html')">HTML</a></li>
-      <li><a href="#!css" onclick="fetchPage('css')">CSS</a></li>
-      <li><a href="#!javascript" onclick="fetchPage('javascript')">JavaScript</a></li>
+    <ol id="nav">
+
     </ol>
     <!--
     <h1><a href="index.html"><font color="red">WEB</font></a></h1>
@@ -56,6 +54,11 @@
     } else{
       fetchPage('welcome');
     }
+    fetch('list').then(function(response){
+      response.text().then(function(text){
+        document.querySelector('#nav').innerHTML = text;
+      })
+    })
   </script>
 </body>
 </html>
