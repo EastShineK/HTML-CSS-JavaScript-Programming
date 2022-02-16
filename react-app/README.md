@@ -29,6 +29,13 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+#### npx serve -s build : build 폴더 안의 파일로 웹페이지 생성
+##### 일반 npm run start 실행 시
+![image](https://user-images.githubusercontent.com/80032329/154255881-e598cd39-cb38-4b71-a90d-3ca972f30736.png)
+##### npm run build 후 npx serve -s build 실행 시
+![image](https://user-images.githubusercontent.com/80032329/154255957-2ba912f5-0fbd-4b70-9092-c5ad0ab7960d.png)
+
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
