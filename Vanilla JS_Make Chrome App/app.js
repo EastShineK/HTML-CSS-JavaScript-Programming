@@ -1,11 +1,6 @@
-const a = 5;
-const b = 2;
-let myName = "EastShine";
+const amIFat = true;
+const amISlim = false;
+const amIWho = null;
+let amICase;
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log("Hello " + myName);
-
-myName = "EastShineK";
-console.log("your name is " + myName);
+console.log(amIFat, amISlim, amIWho, amICase);
