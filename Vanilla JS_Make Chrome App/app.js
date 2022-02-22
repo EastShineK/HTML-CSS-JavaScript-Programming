@@ -1,6 +1,6 @@
-const amIFat = true;
-const amISlim = false;
-const amIWho = null;
-let amICase;
+const daysOfWeek = ["mon", "tue", "wed", "thr", "fri", "sat"];
 
-console.log(amIFat, amISlim, amIWho, amICase);
+console.log(daysOfWeek[3]);
+
+daysOfWeek.push("sun");
+console.log(daysOfWeek);
