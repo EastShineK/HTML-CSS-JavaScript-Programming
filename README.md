@@ -23,3 +23,6 @@
 ### Visitor Analytics - https://analytics.google.com/
 ## Support tables for HTML5, CSS etc. 
 ### https://caniuse.com/
+
+## Vanilla JS - Make chrome App
+### 2022.2~
