@@ -1,0 +1,22 @@
+<h3>수강신청 페이지</h3>
+<form method="post" action="next.html">
+    성명:<input type="text"/><br>
+    학번:<input type="text"/><br>
+    학년:<input type="radio"/>1학년
+    <input type="radio"/>2학년
+    <input type="radio"/>3학년
+    <input type="radio"/>4학년<br>
+    학과:<select name="major">
+        <option>소프트웨어학</option>
+        <option>전자전기공학</option>
+        <option>생명공학</option>
+        <option>물리학</option>
+    </select><br>
+    <br>
+    수강신청(복수선택 가능)<br>
+    -분야: <input type="checkbox" name="과목">국어
+    <input type="checkbox" name="과목">수학
+    <input type="checkbox" name="과목">과학<br>
+    비고:<br>
+    <textarea name="comments" cols="40" rows="4" placeholder="입력하세요"></textarea>
+</form>
