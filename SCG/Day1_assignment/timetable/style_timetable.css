@@ -1,0 +1,55 @@
+h2 {
+    margin-bottom: 0;
+    padding-left: 25px;
+}
+table {
+    width: 600px;
+    height: 600px;
+    
+    border-collapse : collapse;
+    border-top: 0px;
+}
+
+form {
+    padding: 20px;
+    border: 1px solid;
+}
+
+th{
+    
+    border-collapse : collapse;
+    border-style: hidden;
+    border-bottom: 1px solid;
+    vertical-align: bottom;
+}
+
+tr {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width: 60px;
+    height: 40px;
+}
+
+td {
+    border-top: 0px;
+    padding: 0;
+    border : 1px solid black;
+    border-collapse : collapse;
+    width: 60px;
+    height: 60px;
+}
+
+#day {
+    height: 2px;
+}
+
+#time {
+    border: 0;
+    vertical-align: top;
+    text-align: right;
+    width: 0px;
+    border-style: hidden;
+    border-right: 1px solid black;
+    font-weight: bold;
+}
