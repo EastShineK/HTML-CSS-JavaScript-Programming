@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style_timetable.css">
+    <title>Time Table</title>
+</head>
+<body>
+    <h2>2022 1학기 시간표</h2>
+    <table border="1">
+        <tr id="day">
+            <th> </th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+        </tr>
+        <tr>
+            <td id="time">9</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td id="time">10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="time">11</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="time">12</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="time">13</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="time">14</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td id="time">15</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <br>
+    <h2>새 수업 추가</h2>
+    <form method="post" action="next.html">
+        과목명 <input type="text" placeholder="과목명을 적으세요"/><br>
+        교수명 <input type="text" placeholder="교수명을 적으세요"/><br>
+        시간 <input type="checkbox" name="day">월
+        <input type="checkbox" name="day">화
+        <input type="checkbox" name="day">수
+        <input type="checkbox" name="day">목
+        <input type="checkbox" name="day">금<br>
+        <select name="hour">
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+        </select>시
+        <select name="minute">
+            <option>0</option>
+            <option>15</option>
+            <option>30</option>
+            <option>45</option>
+        </select>분 ~
+        <select name="hour">
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+        </select>시
+        <select name="minute">
+            <option>0</option>
+            <option>15</option>
+            <option>30</option>
+            <option>45</option>
+        </select>분<br>
+        장소 <input type="text" placeholder="강의실 번호를 적으세요"/><br><br>
+        <input type="button" value="제출" style="font-weight: bold;">
+    </form>
+</body>
+</html>
