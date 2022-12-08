@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import List
 
 from fastapi import Depends, FastAPI, Request, Response
 from fastapi.responses import FileResponse, RedirectResponse
@@ -13,8 +14,9 @@ from fastapi_login.exceptions import InvalidCredentialsException
 from fastapi.staticfiles import StaticFiles
 
 from models import Base, User
-from crud import db_register_user
+from crud import db_register_user, db_get_users
 from database import SessionLocal, engine
+from schemas import UserInfoSchema
 
 Base.metadata.create_all(bind=engine)
 
@@ -57,8 +59,7 @@ def get_user(username: str, db: Session = None):
         with SessionLocal() as db:
             return db.query(User).filter(User.name == username).first()
     return db.query(User).filter(User.name == username).first()
-
-
+    
 
 @app.post('/token')
 def login(response: Response, data: OAuth2PasswordRequestForm = Depends()):
@@ -82,8 +83,11 @@ def register_user(response: Response,
                   db: Session = Depends(get_db)):
     username = data.username
     password = data.password
+    client_id = data.client_id
+    client_secret = data.client_secret
 
-    user = db_register_user(db, username, password)
+    user = db_register_user(db, username, password, client_id, client_secret)
+    print(client_id)
     if user:
         access_token = manager.create_access_token(
             data={'sub': username}
@@ -93,6 +97,11 @@ def register_user(response: Response,
     else:
         return "Failed"
     
+
+@app.get("/user", response_model=List[UserInfoSchema])    
+def get_todo(db: Session = Depends(get_db),
+             user=Depends(manager)):
+    return db_get_users(db, user)
 
 @app.get("/")
 def get_root(user=Depends(manager)):
@@ -115,3 +124,7 @@ def go_loginpage():
 @app.get("/gosignup")
 def go_signuppage():
     return FileResponse("signup.html")
+
+@app.get("/gomanage")
+def go_manage():
+    return FileResponse("manage.html")

@@ -13,6 +13,35 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./css/signin.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btn_signup").click(function (event) {
+          var username = $("#username").val();
+          var password = $("#password").val();
+          var mem_type = $("#type-select").val();
+          var realname = $("#realname").val();
+
+          var data = {
+            username: username,
+            password: password,
+            client_id: realname,
+            client_secret: mem_type,
+          };
+          $.ajax({
+            url: "/register",
+            type: "post",
+            data: data,
+            success: function (data, txtStatus, xhr) {
+              window.location = "/gologin";
+            },
+            error: function (e) {
+              $("#result").html("sign up failed");
+            },
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="wrap">
@@ -20,11 +49,20 @@
         <h2>SIGN-UP</h2>
         <div class="login_id">
           <h4>ID</h4>
-          <input type="text" name="" id="" placeholder="ID" />
+          <input type="text" name="username" id="username" placeholder="ID" />
         </div>
         <div class="login_pw">
           <h4>Password</h4>
-          <input type="password" name="" id="" placeholder="Password" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="login_id">
+          <h4>Name</h4>
+          <input type="text" name="realname" id="realname" placeholder="Name" />
         </div>
         <div class="membertype">
           <h4>Member Type</h4>
@@ -35,7 +73,7 @@
           </select>
         </div>
         <div class="submit">
-          <input type="submit" value="Sign Up" />
+          <input type="submit" id="btn_signup" value="Sign Up" />
         </div>
       </div>
     </div>
