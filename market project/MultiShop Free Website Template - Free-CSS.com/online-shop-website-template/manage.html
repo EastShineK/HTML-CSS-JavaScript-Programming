@@ -37,14 +37,15 @@
         });
       });
       function del_user(id) {
-        var data = { id: id };
+        var data = { "id": id };
+        console.log('hahah');
         console.log(data);
         $.ajax({
-          url: "/todo",
+          url: "/user",
           type: "delete",
           contentType: "application/json",
           data: JSON.stringify(data),
-          success: update_todo_table,
+          success: update_user_table,
         });
       }
       function update_user_table(users) {
@@ -65,8 +66,9 @@
           else type = 'nothing';
           $("#users").append("<td>" + type + "</td>");
           $("#users").append(
-            '<td onclick="del_todo(' + item.userid + ')">click</td>'
+            '<td onclick="del_user(' + item.id + ')">click</td>'
           );
+          var t = item.userid
           $("#users").append("</tr>");
         });
       }

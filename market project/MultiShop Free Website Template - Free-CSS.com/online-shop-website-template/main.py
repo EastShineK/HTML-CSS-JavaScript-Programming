@@ -14,7 +14,7 @@ from fastapi_login.exceptions import InvalidCredentialsException
 from fastapi.staticfiles import StaticFiles
 
 from models import Base, User
-from crud import db_register_user, db_get_users
+from crud import db_register_user, db_get_users, db_del_user
 from database import SessionLocal, engine
 from schemas import UserInfoSchema
 
@@ -101,6 +101,16 @@ def register_user(response: Response,
 @app.get("/user", response_model=List[UserInfoSchema])    
 def get_todo(db: Session = Depends(get_db),
              user=Depends(manager)):
+    return db_get_users(db, user)
+
+@app.delete("/user", response_model=List[UserInfoSchema])    
+def del_todo(user: UserInfoSchema,
+             db: Session = Depends(get_db)
+             ):
+    result = db_del_user(db, user)
+    # print(result.content)
+    # if not result:
+    #     return None
     return db_get_users(db, user)
 
 @app.get("/")
