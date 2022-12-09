@@ -43,7 +43,7 @@
           var auction = $("#auction").val();
           var purchased = $("#purchased").val();
           var progress = $("#progress").val();
-          var imgpath = 'http://127.0.0.1:8000/img/product-6.jpg'
+          var imgpath = $("#imgpath").val();
           var sellername = $("#sellername").val();
           console.log('hello');
           var data = {
@@ -52,8 +52,6 @@
             place:place,
             phonenum:phonenum,
             auction:auction,
-            purchased:purchased,
-            progress:progress,
             imgpath:imgpath,
             sellername:sellername,
           };
@@ -173,9 +171,13 @@
 
       .img {
           position: absolute;
+          height: 100%;
       }
       .sellbutton{
         margin-top: 50px;
+      }
+      #kkk{
+        height: 750px;
       }
     </style>
   </head>
@@ -477,28 +479,17 @@
                   name="auction" id="auction"
                 />
               </div>
+
               <div class="col-md-6 form-group">
-                <label>Purchased</label>
+                <label>Image link</label>
                 <input
                   class="form-control"
                   type="text"
-                  placeholder="Yes/No"
-                  name="purchased" id="purchased"
+                  placeholder="type product image link"
+                  name="imgpath" id="imgpath"
                 />
               </div>
-              
-              <div class="col-md-6 form-group">
-                <label>In progress</label>
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Yes/No"
-                  name="progress" id="progress"
-                />
-              </div>
-              
-              
-              
+                     
             </div>
           </div>
           

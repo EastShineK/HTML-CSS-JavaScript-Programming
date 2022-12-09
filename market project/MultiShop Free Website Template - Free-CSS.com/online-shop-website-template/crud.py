@@ -80,7 +80,7 @@ def db_modify_products(db: Session, user: ProductSchema):
 def db_buy_products(db: Session, user: ProductSchema):
     row = db.query(Product).filter(Product.id == user.id)
     
-    row.update({"purchased" : "Yes"})
+    row.update({"purchased" : "Yes", "progress" : "No"})
     db.commit()
     
     return True

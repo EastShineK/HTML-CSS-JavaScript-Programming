@@ -186,8 +186,8 @@ def add_product(product: ProductSchema,
     place =product.place
     phonenum =product.phonenum
     auction =product.auction
-    purchased =product.purchased
-    progress =product.progress
+    purchased = 'No'
+    progress = 'Yes'
     imgpath = product.imgpath
     sellername = product.sellername
     numofwish = 0
