@@ -20,3 +20,16 @@ class UserInfoSchema(BaseModel):
     membertype: Optional[str]
     class Config:
         orm_mode = True
+        
+class ProductSchema(BaseModel):
+    id: Optional[int]
+    name: Optional[str]
+    price: Optional[int]
+    place: Optional[str]
+    phonenum: Optional[str]
+    auction: Optional[str]
+    purchased: Optional[str]
+    progress: Optional[str]
+    imgpath: Optional[str]
+    class Config:
+        orm_mode = True

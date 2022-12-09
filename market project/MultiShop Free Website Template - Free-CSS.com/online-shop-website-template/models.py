@@ -32,3 +32,4 @@ class Product(Base):
     auction = Column(String)
     purchased = Column(String)
     progress = Column(String)
+    imgpath = Column(String)

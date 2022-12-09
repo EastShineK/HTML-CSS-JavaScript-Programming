@@ -14,9 +14,15 @@ from fastapi_login.exceptions import InvalidCredentialsException
 from fastapi.staticfiles import StaticFiles
 
 from models import Base, User, UserInfo
-from crud import db_register_user, db_get_users, db_del_user, db_modify_users
+from crud import db_register_user, db_get_users, db_del_user, db_modify_users, db_get_membertype, db_register_product, db_get_products, db_del_product, db_modify_products, db_buy_products
 from database import SessionLocal, engine
-from schemas import UserInfoSchema
+from schemas import UserInfoSchema, ProductSchema
+
+import shutil
+from fastapi import APIRouter, File, UploadFile
+
+
+
 
 Base.metadata.create_all(bind=engine)
 
@@ -147,3 +153,76 @@ def go_signuppage():
 @app.get("/gomanage")
 def go_manage():
     return FileResponse("manage.html")
+
+@app.get("/goselllist")
+def go_manage():
+    return FileResponse("sellerList.html")
+
+@app.get("/godetail")
+def go_manage():
+    return FileResponse("detail.html")
+
+@app.get("/goshop")
+def go_manage():
+    return FileResponse("shop.html")
+
+@app.get("/gomypage")
+def go_mypage(db: Session = Depends(get_db), user=Depends(manager)):
+    x = db_get_membertype(db, user)
+    print(x)
+    if x == 1:
+        return FileResponse("manage.html")
+    elif x == 2:
+        return FileResponse("sellpage.html")
+    else:
+        return FileResponse("contact.html")
+    
+@app.post("/product", response_model=List[ProductSchema])    
+def add_product(product: ProductSchema,
+             db: Session = Depends(get_db)):
+    print(product)
+    name =product.name
+    price = product.price
+    place =product.place
+    phonenum =product.phonenum
+    auction =product.auction
+    purchased =product.purchased
+    progress =product.progress
+    imgpath = product.imgpath
+    result = db_register_product(db, name, price, place, phonenum, auction, purchased, progress, imgpath)
+    if not result:
+        return None
+    return db_get_products(db, product)
+
+@app.get("/products", response_model=List[ProductSchema])    
+def get_product(db: Session = Depends(get_db),
+             user=Depends(manager)):
+    return db_get_products(db, user)
+
+@app.delete("/products", response_model=List[ProductSchema])    
+def del_product(user: ProductSchema,
+             db: Session = Depends(get_db)
+             ):
+    result = db_del_product(db, user)
+    # print(result.content)
+    # if not result:
+    #     return None
+    return db_get_products(db, user)
+
+@app.post("/products", response_model=List[ProductSchema])    
+def modify_product(user: ProductSchema,
+             db: Session = Depends(get_db)):
+    print(user)
+    result = db_modify_products(db, user)
+    if not result:
+        return None
+    return db_get_products(db, user)
+
+@app.post("/products2", response_model=List[ProductSchema])    
+def modify_product(user: ProductSchema,
+             db: Session = Depends(get_db)):
+    print(user)
+    result = db_buy_products(db, user)
+    if not result:
+        return None
+    return db_get_products(db, user)

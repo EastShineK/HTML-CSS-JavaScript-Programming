@@ -36,77 +36,69 @@
           window.location = "/logout";
         });
       });
-      function del_user(id) {
+      function del_product(id) {
         var data = { "id": id };
         console.log('hahah');
         console.log(data);
         $.ajax({
-          url: "/user",
+          url: "/products",
           type: "delete",
           contentType: "application/json",
           data: JSON.stringify(data),
-          success: update_user_table,
+          success: update_product_table,
         });
       }
-      function modify_user(id) {
-        var username = $("#name").val()
-        var userid = $("#userid").val()
+      function modify_product(id) {
+        var price = $("#price").val()
+        var place = $("#place").val()
         
-        var data = { "id": id , "name":username, "userid":userid};
+        var data = { "id": id , "price":price, "place":place};
         console.log('hahah');
         console.log(data);
         $.ajax({
-          url: "/user",
+          url: "/products",
             type: "post",
             contentType: "application/json",
             data: JSON.stringify(data),
-            success: update_user_table,
+            success: update_product_table,
         });
       }
-      function update_user_table(users) {
+      function update_product_table(users) {
         $("#users").empty();
-        $("#users").append("<th >Id</th>");
-        $("#users").append("<th>Name</th>");
-        $("#users").append("<th>Member Type</th>");
+        $("#users").append("<th >Name</th>");
+        $("#users").append("<th>Price</th>");
+        $("#users").append("<th>Place</th>");
         $("#users").append("<th>Edit Info</th>");
         $("#users").append("<th>Edit Button</th>");
+        $("#users").append("<th>Wants to buy</th>");
         $("#users").append("<th>Delete Button</th>");
         users.forEach((item) => {
           $("#users").append("<tr>");
-          $("#users").append("<td>" + item.userid + "</td>");
           $("#users").append("<td>" + item.name + "</td>");
-          let type = '0'
-          console.log("item")
+          $("#users").append("<td>" + item.price + "</td>");
+          $("#users").append("<td>" + item.place + "</td>");
           console.log(item)
-          console.log("item.membertype")
-          console.log(item.membertype)
-          if (item.membertype === '1') type = 'Buyer';
-          else if(item.membertype === '2') type = 'Seller';
-          else if(item.membertype === '3') type = 'Admin';
-          else type = 'nothing';
-          $("#users").append("<td>" + type + "</td>");
-          
           var t = item.userid
           
 
-          $("#users").append("<td>" + '<input type="text" name="userid" id="userid" placeholder="User ID"/><br />' + '<input type="text" name="name" id="name" placeholder="User Name"/><br />' + "</td>");
+          $("#users").append("<td>" + '<input type="text" name="price" id="price" placeholder="Price"/><br />' + '<input type="text" name="place" id="place" placeholder="Place"/><br />' + "</td>");
           $("#users").append(
-            '<td onclick="modify_user(' + item.id + ')">Edit</td>'
+            '<td onclick="modify_product(' + item.id + ')">Edit</td>'
           );
-          
+          $("#users").append("<td>" + '0' + "</td>");
           $("#users").append(
-            '<td onclick="del_user(' + item.id + ')">Delete</td>'
+            '<td onclick="del_product(' + item.id + ')">Delete</td>'
           );
           
           $("#users").append("</tr>");
         });
       }
 
-      function get_users() {
-        $.getJSON("/user", update_user_table);
+      function get_products() {
+        $.getJSON("/products", update_product_table);
       }
       $(document).ready(function () {
-        get_users();
+        get_products();
       });
     </script>
     <style>
@@ -200,14 +192,14 @@
           <div class="collapse navbar-collapse justify-content-between"bid="navbarCollapse">
               <div class="navbar-nav mr-auto py-0"></div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link active">Manager</a>
+                <a href="contact.html" class="nav-item nav-link active">Seller</a>
               </div>
         </div>        
     </div>
     <!-- Navbar End -->
 
     <div class="bg-light p-30 mb-3">
-      <h1>User List</h1>
+      <h1>Sell List</h1>
       <table class="usertable" id="users"></table>
     </div>
 
