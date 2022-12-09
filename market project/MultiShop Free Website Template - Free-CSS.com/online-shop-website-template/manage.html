@@ -49,10 +49,10 @@
         });
       }
       function modify_user(id) {
-        console.log("why always me?")
         var username = $("#name").val()
+        var userid = $("#userid").val()
         
-        var data = { "id": id , "name":username};
+        var data = { "id": id , "name":username, "userid":userid};
         console.log('hahah');
         console.log(data);
         $.ajax({
@@ -86,7 +86,7 @@
           var t = item.userid
           
 
-          $("#users").append("<td>" + '<input type="text" name="name" id="name"/><br />' + "</td>");
+          $("#users").append("<td>" + '<input type="text" name="userid" id="userid" placeholder="User ID"/><br />' + '<input type="text" name="name" id="name" placeholder="User Name"/><br />' + "</td>");
           $("#users").append(
             '<td onclick="modify_user(' + item.id + ')">Edit</td>'
           );

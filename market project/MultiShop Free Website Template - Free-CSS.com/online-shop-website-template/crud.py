@@ -30,7 +30,7 @@ def db_modify_users(db: Session, user: UserInfoSchema):
     
     print(user.name)
     print(row)
-    row.update({"name" : user.name})
+    row.update({"name" : user.name, "userid" : user.userid})
     db.commit()
     
     return True
