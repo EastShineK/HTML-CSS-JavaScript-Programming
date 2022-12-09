@@ -14,7 +14,7 @@ from fastapi_login.exceptions import InvalidCredentialsException
 from fastapi.staticfiles import StaticFiles
 
 from models import Base, User, UserInfo
-from crud import db_register_user, db_get_users, db_del_user, db_modify_users, db_get_membertype, db_register_product, db_get_products, db_del_product, db_modify_products, db_buy_products
+from crud import db_register_user, db_get_users, db_del_user, db_modify_users, db_get_membertype, db_register_product, db_get_products, db_del_product, db_modify_products, db_buy_products, db_wish_products
 from database import SessionLocal, engine
 from schemas import UserInfoSchema, ProductSchema
 
@@ -189,7 +189,9 @@ def add_product(product: ProductSchema,
     purchased =product.purchased
     progress =product.progress
     imgpath = product.imgpath
-    result = db_register_product(db, name, price, place, phonenum, auction, purchased, progress, imgpath)
+    sellername = product.sellername
+    numofwish = 0
+    result = db_register_product(db, name, price, place, phonenum, auction, purchased, progress, imgpath, sellername, numofwish)
     if not result:
         return None
     return db_get_products(db, product)
@@ -223,6 +225,15 @@ def modify_product(user: ProductSchema,
              db: Session = Depends(get_db)):
     print(user)
     result = db_buy_products(db, user)
+    if not result:
+        return None
+    return db_get_products(db, user)
+
+@app.post("/products3", response_model=List[ProductSchema])    
+def wish_product(user: ProductSchema,
+             db: Session = Depends(get_db)):
+
+    result = db_wish_products(db, user)
     if not result:
         return None
     return db_get_products(db, user)

@@ -33,3 +33,5 @@ class Product(Base):
     purchased = Column(String)
     progress = Column(String)
     imgpath = Column(String)
+    sellername = Column(String)
+    numofwish = Column(Integer)

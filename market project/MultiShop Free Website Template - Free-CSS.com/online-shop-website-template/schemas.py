@@ -31,5 +31,7 @@ class ProductSchema(BaseModel):
     purchased: Optional[str]
     progress: Optional[str]
     imgpath: Optional[str]
+    sellername: Optional[str]
+    numofwish: Optional[int]
     class Config:
         orm_mode = True

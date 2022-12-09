@@ -43,7 +43,8 @@
           var auction = $("#auction").val();
           var purchased = $("#purchased").val();
           var progress = $("#progress").val();
-          var imgpath = 'http://127.0.0.1:8000/img/product-5.jpg'
+          var imgpath = 'http://127.0.0.1:8000/img/product-6.jpg'
+          var sellername = $("#sellername").val();
           console.log('hello');
           var data = {
             name:name,
@@ -54,6 +55,7 @@
             purchased:purchased,
             progress:progress,
             imgpath:imgpath,
+            sellername:sellername,
           };
           console.log(data);
           $.ajax({
@@ -438,6 +440,15 @@
               <div class="col-md-6 form-group">
                 <label>Price</label>
                 <input class="form-control" type="text" placeholder="35,000" name="price" id="price" />
+              </div>
+              <div class="col-md-6 form-group">
+                <label>Seller Name</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Hwang"
+                  name="sellername" id="sellername"
+                />
               </div>
               <div class="col-md-6 form-group">
                 <label>Trading Place</label>

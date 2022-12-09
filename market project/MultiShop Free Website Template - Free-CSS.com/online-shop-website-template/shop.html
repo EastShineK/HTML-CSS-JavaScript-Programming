@@ -47,7 +47,7 @@
               count = 0;
               try{
                 users.forEach((item) => {
-                  $("#products").append('<div id="kkk" class="col-lg-4 col-md-6 col-sm-6 pb-1"><div class="product-item bg-light mb-4"><div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="' + item.imgpath + '" alt="" /></div><div class="text-center py-4"></div><h3>' + item.name + '</h3><h3>장소:' + item.price + '원</h3><h3>' + item.place + '</h3><h3>판매자 번호:'+item.phonenum+'</h3><h3>판매완료:'+item.purchased+'</h3><button class="btn_buy" type="button" id="btn_detail" onclick="buy_item('+item.id+')">Buy</button></div></div></div>');
+                  $("#products").append('<div id="kkk" class="col-lg-4 col-md-6 col-sm-6 pb-1"><div class="product-item bg-light mb-4"><div class="product-img position-relative overflow-hidden"><img class="img-fluid w-100" src="' + item.imgpath + '" alt="" /></div><div class="text-center py-4"></div><h3>' + item.name + '</h3><h3>장소:' + item.price + '원</h3><h3>' + item.place + '</h3><h3>판매자 이름:'+item.sellername+'</h3><h3>판매자 번호:'+item.phonenum+'</h3><h3>판매완료:'+item.purchased+'</h3><button class="btn_wish" type="button" id="btn_wish" onclick="wish_item('+item.id+','+item.numofwish+')">Wish</button><button class="btn_buy" type="button" id="btn_detail" onclick="buy_item('+item.id+')">Buy</button></div></div></div>');
                   
                   console.log(item)
                   var t = item.userid
@@ -73,6 +73,18 @@
                     success: update_product_table,
                 });
             }
+
+            function wish_item(id, numofwish) {
+                var data = { "id": id , "numofwish": numofwish+1};
+                console.log(data)
+                $.ajax({
+                  url: "/products3",
+                    type: "post",
+                    contentType: "application/json",
+                    data: JSON.stringify(data),
+                    success: update_product_table,
+                });
+            }
       
             function get_products() {
               $.getJSON("/products", update_product_table);
@@ -90,6 +102,10 @@
               align-items: center;
               width: 100%;
             }
+            .btn_wish{
+                align-items: center;
+                width: 100%;
+              }
           </style>
 </head>
 

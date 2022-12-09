@@ -48,8 +48,8 @@ def db_get_membertype(db: Session, user: User):
         return 3
     
     
-def db_register_product(db: Session, name, price, place, phonenum, auction, purchased, progress, imgpath):
-    db_item = Product(name=name, price=price, place=place, phonenum=phonenum, auction=auction, purchased=purchased, progress=progress, imgpath=imgpath)
+def db_register_product(db: Session, name, price, place, phonenum, auction, purchased, progress, imgpath, sellername, numofwish):
+    db_item = Product(name=name, price=price, place=place, phonenum=phonenum, auction=auction, purchased=purchased, progress=progress, imgpath=imgpath, sellername=sellername, numofwish=numofwish)
     print(db_item)
     db.add(db_item)
     db.commit()
@@ -81,6 +81,14 @@ def db_buy_products(db: Session, user: ProductSchema):
     row = db.query(Product).filter(Product.id == user.id)
     
     row.update({"purchased" : "Yes"})
+    db.commit()
+    
+    return True
+
+def db_wish_products(db: Session, user: ProductSchema):
+    row = db.query(Product).filter(Product.id == user.id)
+    
+    row.update({"numofwish" : user.numofwish})
     db.commit()
     
     return True
