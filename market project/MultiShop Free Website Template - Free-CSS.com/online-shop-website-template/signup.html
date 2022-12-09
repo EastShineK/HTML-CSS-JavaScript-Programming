@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SIGN IN</title>
+    <title>SIGN UP</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
       rel="stylesheet"
@@ -21,6 +21,23 @@
           var password = $("#password").val();
           var mem_type = $("#type-select").val();
           var realname = $("#realname").val();
+
+          if (username == "") {
+            alert("ID를 입력하세요!!");
+            return false;
+          }
+          if (password == "") {
+            alert("비밀번호를 입력하세요!!");
+            return false;
+          }
+          if (realname == "") {
+            alert("이름을 입력하세요!!");
+            return false;
+          }
+          if (mem_type == "0") {
+            alert("사용자 type을 선택해주세요!!");
+            return false;
+          }
 
           var data = {
             username: username,
@@ -67,6 +84,7 @@
         <div class="membertype">
           <h4>Member Type</h4>
           <select id="type-select">
+            <option value="0">select</option>
             <option value="1">Buyer</option>
             <option value="2">Seller</option>
             <option value="3">Admin</option>

@@ -134,7 +134,7 @@ def get_root(user=Depends(manager)):
 
 @app.get("/login")
 def get_login():
-    return FileResponse("index.html")
+    return FileResponse("signin.html")
 
 @app.get("/logout")
 def logout(response : Response):

@@ -33,13 +33,18 @@
             },
           });
         });
+        $(".btn_signin").click(function (event) {
+          window.location = "/gosignup";
+        });
+
       });
     </script>
   </head>
   <body>
     <div class="wrap">
       <div class="login">
-        <h2>Log-in</h2>
+        <h1>Welcome DB Market!! </h1>
+        <h2>Please to Log-in</h2>
         <div class="login_id">
           <h4>ID</h4>
           <input type="text" name="username" id="username" placeholder="ID" />
@@ -50,6 +55,7 @@
         </div>
         <div class="submit">
           <input type="button" id="btn_submit" value="Login"></input>
+          <input type="button" class="btn_signin" id="btn_submit" value="Sign Up" style="margin-top: 20px;"></input>
         </div>
       </div>
     </div>
