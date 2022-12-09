@@ -13,8 +13,8 @@ from fastapi_login.exceptions import InvalidCredentialsException
 
 from fastapi.staticfiles import StaticFiles
 
-from models import Base, User
-from crud import db_register_user, db_get_users, db_del_user
+from models import Base, User, UserInfo
+from crud import db_register_user, db_get_users, db_del_user, db_modify_users
 from database import SessionLocal, engine
 from schemas import UserInfoSchema
 
@@ -57,8 +57,8 @@ def auth_exception_handler(request: Request, exc: NotAuthenticatedException):
 def get_user(username: str, db: Session = None):
     if not db:
         with SessionLocal() as db:
-            return db.query(User).filter(User.name == username).first()
-    return db.query(User).filter(User.name == username).first()
+            return db.query(UserInfo).filter(UserInfo.userid == username).first()
+    return db.query(UserInfo).filter(UserInfo.userid == username).first()
     
 
 @app.post('/token')
@@ -111,6 +111,15 @@ def del_todo(user: UserInfoSchema,
     # print(result.content)
     # if not result:
     #     return None
+    return db_get_users(db, user)
+
+@app.post("/user", response_model=List[UserInfoSchema])    
+def add_todo(user: UserInfoSchema,
+             db: Session = Depends(get_db)):
+    print(user)
+    result = db_modify_users(db, user)
+    if not result:
+        return None
     return db_get_users(db, user)
 
 @app.get("/")

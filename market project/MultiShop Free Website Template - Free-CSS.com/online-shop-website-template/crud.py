@@ -24,3 +24,13 @@ def db_del_user(db: Session, user: UserInfoSchema):
     db.commit()
     print(UserInfo.id)
     return True
+
+def db_modify_users(db: Session, user: UserInfoSchema):
+    row = db.query(UserInfo).filter(UserInfo.id == user.id)
+    
+    print(user.name)
+    print(row)
+    row.update({"name" : user.name})
+    db.commit()
+    
+    return True

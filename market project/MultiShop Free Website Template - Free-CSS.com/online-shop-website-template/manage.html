@@ -48,12 +48,29 @@
           success: update_user_table,
         });
       }
+      function modify_user(id) {
+        console.log("why always me?")
+        var username = $("#name").val()
+        
+        var data = { "id": id , "name":username};
+        console.log('hahah');
+        console.log(data);
+        $.ajax({
+          url: "/user",
+            type: "post",
+            contentType: "application/json",
+            data: JSON.stringify(data),
+            success: update_user_table,
+        });
+      }
       function update_user_table(users) {
         $("#users").empty();
         $("#users").append("<th >Id</th>");
         $("#users").append("<th>Name</th>");
         $("#users").append("<th>Member Type</th>");
-        $("#users").append("<th>done</th>");
+        $("#users").append("<th>Edit Info</th>");
+        $("#users").append("<th></th>");
+        $("#users").append("<th>Delete</th>");
         users.forEach((item) => {
           $("#users").append("<tr>");
           $("#users").append("<td>" + item.userid + "</td>");
@@ -65,10 +82,19 @@
           else if(item.membertype === '3') type = 'Admin';
           else type = 'nothing';
           $("#users").append("<td>" + type + "</td>");
-          $("#users").append(
-            '<td onclick="del_user(' + item.id + ')">click</td>'
-          );
+          
           var t = item.userid
+          
+
+          $("#users").append("<td>" + '<input type="text" name="name" id="name"/><br />' + "</td>");
+          $("#users").append(
+            '<td onclick="modify_user(' + item.id + ')">Edit</td>'
+          );
+          
+          $("#users").append(
+            '<td onclick="del_user(' + item.id + ')">Delete</td>'
+          );
+          
           $("#users").append("</tr>");
         });
       }
@@ -87,6 +113,7 @@
       th, td{
         padding: 20px;
         padding-right: 100px;
+        text-align: center;
       }
 
     </style>
